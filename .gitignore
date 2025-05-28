@@ -1,0 +1,15 @@
+# bin and object files
+bin/
+*.o
+*.exe
+
+# editor/IDE
+.vscode/
+*.swp
+*.swo
+
+# build artifacts
+build/
+
+# generated files
+pdf/
