@@ -45,7 +45,7 @@ void indiceSegundoMaior(int *vet, int tamanho, int *p)
     printf("Índice do segundo maior elemento: %d (Elemento %d)\n",*p, maior);
 }
 
-int main()
+int mainQuestao1()
 {int vet[10];
     for (int i = 0; i < 10; i++)
     {
