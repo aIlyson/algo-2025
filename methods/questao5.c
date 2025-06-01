@@ -11,17 +11,17 @@ int extrair_Codigo_Arquivo(){
         return 1;
     }
 
+    Produto p;
     char linha[100];
-    int max = 0, codigo, quantidade;
-    float preco_unitario;
+    int max = 0;
 
     while (fgets(linha, sizeof(linha), arq))
     {
-        if(sscanf(linha,"%d;%d;%f", &codigo, &quantidade, &preco_unitario ) == 3){
-            printf("%d", codigo);
-            if (codigo > max) {
-                max = codigo;
-            }
+        if(!(sscanf(linha,"%d;%d;%f", &p.codigo, &p.quantidade, &p.preco_unitario ) == 3)){
+            continue;
+        }
+        if (p.codigo > max) {
+            max = p.codigo;
         }
     }
     return max;
