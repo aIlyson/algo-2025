@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "methods/questao1.h"
 #include "methods/questao5.h"
 
 int main(){
@@ -19,6 +20,10 @@ int main(){
         scanf("%d", &opcao);
         switch (opcao)
         {
+        case 1:
+            system("cls");
+            mainQuestao1();
+            break;
         case 5:
             system("cls");
             mainQuestao5();
