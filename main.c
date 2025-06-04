@@ -1,12 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "methods/questao1.h"
+#include "methods/questao3.h"
 #include "methods/questao5.h"
 
-int main(){
+// lembra que vamos usar o limpar a tela no Ubuntu dele tmb
+void clearScreen()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+int main()
+{
     int opcao;
-    do{
-        system("cls");
+
+    do
+    {
+        clearScreen();
+        printf("*----------------------------------*\n");
         printf("*------------Menu Questoes-----------*\n");
         printf("|-----------Informe a opcao----------|\n");
         printf("|____________________________________|\n");
@@ -21,16 +36,22 @@ int main(){
         switch (opcao)
         {
         case 1:
-            system("cls");
+            clearScreen();
             mainQuestao1();
             break;
+
+        case 3:
+            clearScreen();
+            mainQuestao3();
+            break;
+
         case 5:
-            system("cls");
+            clearScreen();
             mainQuestao5();
             break;
         default:
             break;
         }
-    }while(opcao != 6);
+    } while (opcao != 6);
     return 0;
 }
