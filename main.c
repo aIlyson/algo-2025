@@ -4,7 +4,7 @@
 #include "methods/questao3.h"
 #include "methods/questao5.h"
 
-// lembra que vamos usar o limpar a tela no Ubuntu dele tmb
+// lembra que precisamos limpar a tela tanto no Windows quanto no Linux/Ubuntu
 void clearScreen()
 {
 #ifdef _WIN32
@@ -32,26 +32,48 @@ int main()
         printf("*5-Questao 5----------------------<<-*\n");
         printf("*6-Sair---------------------------<<-*\n");
         printf("*____________________________________*\n");
+        printf("Opcao: ");
         scanf("%d", &opcao);
+
+        clearScreen(); // tirei o clearScreen() do switch para evitar limpar a tela antes de mostrar o resultado da questao
+
         switch (opcao)
         {
         case 1:
-            clearScreen();
             mainQuestao1();
             break;
 
+            // case 2:
+            // break;
+
         case 3:
-            clearScreen();
             mainQuestao3();
             break;
 
+            // case 4:
+            // break;
+
         case 5:
-            clearScreen();
             mainQuestao5();
             break;
+
+        case 6:
+            printf("Saindo...\n");
+            break;
+
         default:
+            printf("Erro... digite uma opcao valida\n");
             break;
         }
+
+        if (opcao != 6)
+        {
+            printf("\nAperte ENTER para voltar ao menu...");
+            getchar(); // necessario para que o programa aguarde o usuário pressionar ENTER
+            getchar();
+        }
+
     } while (opcao != 6);
+
     return 0;
 }
