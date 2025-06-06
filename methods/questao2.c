@@ -2,22 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX_ALUNOS 100
-#define MAX_DISCIPLINAS 10
-#define TAM_NOME 51
-
-typedef struct {
-    char nome[TAM_NOME];
-    float nota;
-} Disciplina;
-
-typedef struct {
-    char nome[TAM_NOME];
-    int matricula;
-    int numDisciplinas;
-    Disciplina disciplinas[MAX_DISCIPLINAS];
-} Aluno;
-
 // Função para cadastrar todos os alunos
 void cadastrarAlunos(Aluno *alunos, int n) {
     for (int i = 0; i < n; i++) {
