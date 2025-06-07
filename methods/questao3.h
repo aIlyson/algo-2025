@@ -2,6 +2,7 @@
 #define QUESTAO3_H
 #include <stdio.h>
 
-void mainQuestao3(void);
+float calcularMedia(int *vetor, int n);
+int mainQuestao3();
 
 #endif
