@@ -3,6 +3,7 @@
 #include "methods/questao1.h"
 #include "methods/questao3.h"
 #include "methods/questao5.h"
+#include "methods/questao2.h"
 
 // lembra que precisamos limpar a tela tanto no Windows quanto no Linux/Ubuntu
 void clearScreen()
@@ -43,8 +44,9 @@ int main()
             mainQuestao1();
             break;
 
-            // case 2:
-            // break;
+        case 2:
+            mainQuestao2();
+            break;
 
         case 3:
             mainQuestao3();
