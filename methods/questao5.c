@@ -4,6 +4,20 @@
 #include <stdio.h>
 #include <string.h>
 
+void clearScreen5()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+/*
+ Essa função busca o maior código de produto no arquivo 'vendas.txt' e retorna o próximo código disponível.
+ Se o arquivo estiver vazio ou não existir produtos, retorna 1 (primeiro código válido).
+ Se existirem produtos, retorna o maior código encontrado + 1 (próximo código sequencial).
+*/
 int extrair_Codigo_Arquivo(){
     FILE *arq = fopen("vendas.txt", "r");
     if(arq == NULL){
@@ -28,6 +42,14 @@ int extrair_Codigo_Arquivo(){
     return max + 1;
 }
 
+/*
+Processa o arquivo de vendas, adicionando/atualizando as linhas de 'Total geral' e 'Mais vendido' no final.
+ A função:
+ * 1. Cria um arquivo temporário, na qual colocar todos os produto do file vendas.txt, 
+      e nã o adiciona os 'Total geral' e 'Mais vendido' se presentes. 
+ * 2. Adiciona as novas linhas de total e mais vendido ao final.
+ * 3. renomeia o arquivo temporário pelo nome vendas.txt.
+*/
 void addVendidoTotal(float *maisVendido, int *index, float *total)
 {
     FILE *arq = fopen("vendas.txt", "r");
@@ -78,6 +100,13 @@ void addVendidoTotal(float *maisVendido, int *index, float *total)
     *index = 0, *maisVendido = 0;
 }
 
+/*
+Processa o arquivo de vendas calculando o lucro por produto, o total geral e identifica o produto mais vendido.
+ Para cada produto no arquivo, a função:
+ * 1. Calcula o lucro (quantidade * preço unitário) e exibe no console.
+ * 2. Acumula o valor total de todas as vendas.
+ * 3. Rastreia o produto com maior quantidade vendida.
+*/
 int procesaDados(float *maisVendido, int *index, float *total)
 {
     FILE *arq = fopen("vendas.txt", "r");
@@ -129,7 +158,7 @@ int procesaDados(float *maisVendido, int *index, float *total)
 }
 
 void adicionaProduto(Produto *p, int *codigo){
-    printf("%d",*codigo);
+    printf("Codigo do produto (%d)\n",*codigo);
     p->codigo = *codigo;
     printf("Informe a quantidade de produto\n");         
     scanf("%d", &p->quantidade);
@@ -138,6 +167,7 @@ void adicionaProduto(Produto *p, int *codigo){
     (*codigo)++; 
 }
 
+// Essa função void vai adicionar os dados da Struct Produto no arquivo, por meio de fprintf.
 void addprodutoFile(int *codigo){
     FILE *arq = fopen("vendas.txt", "a");
     if(arq == NULL){
@@ -159,24 +189,24 @@ int mainQuestao5()
 
     do
     {
-        system("cls");
-        printf("-----------------Menu---------------\n");
+        clearScreen5();
+        printf("*----------------Menu----------------*\n");
         printf("|-----------Informe a opcao----------|\n");
-        printf("||\n");
-        printf("1-Adiciona Produto---------------<<-\n");
-        printf("2-Processar Dados----------------<<-\n");
-        printf("3-Sair---------------------------<<-\n");
+        printf("|____________________________________|\n");
+        printf("*1-Adiciona Produto---------------<<-*\n");
+        printf("*2-Processar Dados----------------<<-*\n");
+        printf("*3-Sair---------------------------<<-*\n");
         printf("\n");
         scanf("%d", &opcao);
 
         switch (opcao)
         {
         case 1:
-            system("cls");
+            clearScreen5();
             addprodutoFile(&codigo);
             break;
         case 2:
-            system("cls");
+            clearScreen5();
             if(procesaDados(&maisVendido,&index, &total))
             {
                 addVendidoTotal(&maisVendido,&index,&total);
