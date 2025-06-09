@@ -4,6 +4,7 @@
 #include "methods/questao3.h"
 #include "methods/questao5.h"
 #include "methods/questao2.h"
+#include "methods/questao4.h"
 
 // lembra que precisamos limpar a tela tanto no Windows quanto no Linux/Ubuntu
 void clearScreen()
@@ -22,7 +23,7 @@ int main()
     do
     {
         clearScreen();
-        printf("*----------------------------------*\n");
+        printf("*------------------------------------*\n");
         printf("*------------Menu Questoes-----------*\n");
         printf("|-----------Informe a opcao----------|\n");
         printf("|____________________________________|\n");
@@ -52,8 +53,9 @@ int main()
             mainQuestao3();
             break;
 
-            // case 4:
-            // break;
+        case 4:
+            mainQuestao4();
+            break;
 
         case 5:
             mainQuestao5();
