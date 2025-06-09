@@ -2,6 +2,9 @@
 #define QUESTAO3_H
 #include <stdio.h>
 
-void mainQuestao3(void);
+float calcularMedia(int *vetor, int n);
+int retornaValor(int x);
+void reorganiza(int *vetor, int n, float media);
+int mainQuestao3();
 
 #endif
