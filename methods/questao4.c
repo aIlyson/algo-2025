@@ -1,4 +1,4 @@
-#include "methods/questao4.h"
+#include "questao4.h"
 #include <stdio.h>
 
 int processarMatriz(int **mat, int l, int c){

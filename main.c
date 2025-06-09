@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "methods/questao1.h"
-#include "methods/questao3.h"
-#include "methods/questao5.h"
 #include "methods/questao2.h"
+#include "methods/questao3.h"
 #include "methods/questao4.h"
+#include "methods/questao5.h"
 
 // lembra que precisamos limpar a tela tanto no Windows quanto no Linux/Ubuntu
 void clearScreen()
